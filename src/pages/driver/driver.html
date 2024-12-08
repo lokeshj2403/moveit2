@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Registration - MoveIt</title>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-8">Driver Registration</h1>
+        
+        <div class="max-w-3xl mx-auto">
+            <form id="driverRegistrationForm" class="space-y-8">
+                <!-- Personal Information -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-bold mb-4">Personal Information</h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                            <input type="text" name="fullName" required class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                            <input type="tel" name="phone" required class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" name="email" required class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
+                            <input type="date" name="dateOfBirth" required class="form-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Information -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-bold mb-4">Vehicle Information</h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Vehicle Type</label>
+                            <select name="vehicleType" required class="form-input">
+                                <option value="">Select vehicle type</option>
+                                <option value="20ft">20ft Container Truck</option>
+                                <option value="32ft">32ft Container Truck</option>
+                                <option value="open">Open Truck</option>
+                                <option value="refrigerated">Refrigerated Truck</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Vehicle Registration Number</label>
+                            <input type="text" name="vehicleRegistration" required class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Vehicle Make</label>
+                            <input type="text" name="vehicleMake" required class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Vehicle Model</label>
+                            <input type="text" name="vehicleModel" required class="form-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Upload -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-bold mb-4">Required Documents</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Driver's License</label>
+                            <input type="file" name="driversLicense" required accept="image/*,.pdf" class="form-input">
+                            <p class="text-sm text-gray-500 mt-1">Upload a clear photo or scan of your driver's license</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Vehicle Registration Certificate</label>
+                            <input type="file" name="vehicleRC" required accept="image/*,.pdf" class="form-input">
+                            <p class="text-sm text-gray-500 mt-1">Upload vehicle RC document</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Insurance Document</label>
+                            <input type="file" name="insurance" required accept="image/*,.pdf" class="form-input">
+                            <p class="text-sm text-gray-500 mt-1">Upload valid insurance document</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Vehicle Photos</label>
+                            <input type="file" name="vehiclePhotos" multiple accept="image/*" class="form-input">
+                            <p class="text-sm text-gray-500 mt-1">Upload clear photos of your vehicle (front, back, sides)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                    Submit Registration
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Registration Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg w-96 text-center">
+            <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <h2 class="text-xl font-bold mb-2">Registration Successful!</h2>
+            <p class="text-gray-600 mb-4">Your registration has been submitted for verification. We'll notify you once it's approved.</p>
+            <button onclick="hideSuccessModal()" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="/src/js/pages/driver/registration.js"></script>
+</body>
+</html>

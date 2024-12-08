@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoveIt - Your Trusted Moving Partner</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body class="bg-gray-50">
+    <nav class="bg-blue-600 text-white p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-8">
+          <h1 class="text-3xl font-bold">MoveIt</h1>
+          <button onclick="window.router.navigateTo('/')" class="hover:text-blue-200">Home</button>
+        </div>
+        <div class="space-x-4">
+          <button onclick="showLoginModal()" class="hover:text-blue-200">Login</button>
+          <button onclick="showRegisterModal()" class="hover:text-blue-200">Register</button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mx-auto p-8">
+      <!-- Hero Section with Image Carousel -->
+      <div class="relative mb-16 rounded-xl overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-transparent z-10"></div>
+        <img id="hero-image" src="/src/assets/truck1.jpg" alt="Modern delivery truck on highway" class="w-full h-[400px] object-cover">
+        <div class="absolute inset-0 flex items-center z-20">
+          <div class="container mx-auto px-8">
+            <h2 class="text-5xl font-bold text-white mb-4 max-w-2xl">Welcome to MoveIt</h2>
+            <p class="text-2xl text-white/90 mb-8 max-w-xl">Your trusted partner for all transportation needs</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interface Options -->
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Customer Interface -->
+        <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
+          <div class="relative mb-6 rounded-lg overflow-hidden">
+            <img src="/src/assets/customer-truck.jpg" alt="Book a truck" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+              <h3 class="text-2xl font-bold text-white">Looking to Book a Truck?</h3>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-6">Find the perfect truck for your moving needs</p>
+          <ul class="text-gray-600 mb-6 space-y-2">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Compare prices from multiple providers
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Real-time tracking
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Secure online payments
+            </li>
+          </ul>
+          <button onclick="window.router.navigateTo('/booking')" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+            Book a Truck
+          </button>
+        </div>
+
+        <!-- Driver Interface -->
+        <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
+          <div class="relative mb-6 rounded-lg overflow-hidden">
+            <img src="/src/assets/driver-truck.jpg" alt="Register as driver" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+              <h3 class="text-2xl font-bold text-white">Own a Truck?</h3>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-6">Join our network of trusted drivers</p>
+          <ul class="text-gray-600 mb-6 space-y-2">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Get regular booking requests
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Flexible working hours
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Competitive earnings
+            </li>
+          </ul>
+          <button onclick="window.router.navigateTo('/driver')" class="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">
+            Register as Driver
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+      <div class="bg-white p-6 rounded-lg w-96">
+        <h2 class="text-xl font-bold mb-4">Login</h2>
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Email</label>
+            <input type="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Password</label>
+            <input type="password" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+          </div>
+          <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Login</button>
+        </form>
+        <button onclick="hideLoginModal()" class="mt-4 text-gray-600 hover:text-gray-800">Close</button>
+      </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+      <div class="bg-white p-6 rounded-lg w-96">
+        <h2 class="text-xl font-bold mb-4">Register</h2>
+        <form id="registerForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Full Name</label>
+            <input type="text" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Email</label>
+            <input type="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Password</label>
+            <input type="password" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Confirm Password</label>
+            <input type="password" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+          </div>
+          <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Register</button>
+        </form>
+        <button onclick="hideRegisterModal()" class="mt-4 text-gray-600 hover:text-gray-800">Close</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>
