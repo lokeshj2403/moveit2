@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Truck - MoveIt</title>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-8">Book a Truck</h1>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Booking Form -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-bold mb-6">Booking Details</h2>
+                <form id="bookingForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Pickup Location</label>
+                        <input type="text" name="pickupLocation" required class="form-input">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Delivery Location</label>
+                        <input type="text" name="deliveryLocation" required class="form-input">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Pickup Date</label>
+                        <input type="date" name="pickupDate" required class="form-input">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Cargo Type</label>
+                        <select name="cargoType" required class="form-input">
+                            <option value="">Select cargo type</option>
+                            <option value="furniture">Furniture</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="vehicles">Vehicles</option>
+                            <option value="construction">Construction Materials</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Additional Notes</label>
+                        <textarea name="notes" rows="3" class="form-input"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Upload Cargo Images</label>
+                        <input type="file" name="cargoImages" accept="image/*" multiple class="form-input">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+                        Request Bids
+                    </button>
+                </form>
+            </div>
+
+            <!-- Active Bids Section -->
+            <div id="bidsSection" class="bg-white rounded-lg shadow-lg p-6 hidden">
+                <h2 class="text-xl font-bold mb-6">Active Bids</h2>
+                <div id="bidsList" class="space-y-4">
+                    <!-- Bids will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/js/pages/customer/booking.js"></script>
+</body>
+</html>

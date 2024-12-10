@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoveIt - Your Trusted Moving Partner</title>
+    <link rel="stylesheet" href="/src/styles/main.css">
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-content">
+        <div class="flex items-center space-x-4">
+          <h1>MoveIt</h1>
+          <button onclick="window.router.navigateTo('/')" class="btn">Home</button>
+        </div>
+        <div class="space-x-4">
+          <button onclick="showLoginModal()" class="btn">Login</button>
+          <button onclick="showRegisterModal()" class="btn">Register</button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container p-8">
+      <!-- Hero Section -->
+      <div class="card mb-8">
+        <div class="relative">
+          <img id="hero-image" src="src\assets\truck1.jpg" alt="Modern delivery truck on highway" class="w-full">
+          <div class="absolute">
+            <div class="container">
+              <h2 class="mb-4">Welcome to MoveIt</h2>
+              <p class="mb-8">Your trusted partner for all transportation needs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interface Options -->
+      <div class="grid grid-cols-2">
+        <!-- Customer Interface -->
+        <div class="card">
+          <div class="mb-6">
+            <img src="src\assets\customer-truck.jpg" alt="Book a truck">
+            <h3>Looking to Book a Truck?</h3>
+          </div>
+          <p class="mb-6">Find the perfect truck for your moving needs</p>
+          <button onclick="window.router.navigateTo('/booking')" class="btn btn-primary">
+            Book a Truck
+          </button>
+        </div>
+
+        <!-- Driver Interface -->
+        <div class="card">
+          <div class="mb-6">
+            <img src="/src/assets/driver-truck.jpg" alt="Register as driver">
+            <h3>Own a Truck?</h3>
+          </div>
+          <p class="mb-6">Join our network of trusted drivers</p>
+          <button onclick="window.router.navigateTo('pages/driver')" class="btn btn-success">
+            Register as Driver
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden">
+      <div class="modal-content">
+        <h2 class="mb-4">Login</h2>
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label class="form-label">Email</label>
+            <input type="email" required class="form-input">
+          </div>
+          <div>
+            <label class="form-label">Password</label>
+            <input type="password" required class="form-input">
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <button onclick="hideLoginModal()" class="btn btn-secondary mt-4">Close</button>
+      </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal hidden">
+      <div class="modal-content">
+        <h2 class="mb-4">Register</h2>
+        <form id="registerForm" class="space-y-4">
+          <div>
+            <label class="form-label">Full Name</label>
+            <input type="text" required class="form-input">
+          </div>
+          <div>
+            <label class="form-label">Email</label>
+            <input type="email" required class="form-input">
+          </div>
+          <div>
+            <label class="form-label">Password</label>
+            <input type="password" required class="form-input">
+          </div>
+          <div>
+            <label class="form-label">Confirm Password</label>
+            <input type="password" required class="form-input">
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <button onclick="hideRegisterModal()" class="btn btn-secondary mt-4">Close</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>
