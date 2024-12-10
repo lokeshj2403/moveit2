@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import '../styles/main.css';
+=======
+>>>>>>> 68242a46c0d9c202f336146a2d33406d845d7363
 import { ModalManager } from './utils/modalManager.js';
 import { Router } from './utils/router.js';
 import { ImageCarousel } from './utils/imageCarousel.js';
